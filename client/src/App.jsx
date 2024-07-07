@@ -1,22 +1,14 @@
 import { EthProvider } from './contexts/EthContext'
+import routes from './routes'
+import { useRoutes } from 'react-router-dom'
 import { AlertProvider } from './contexts/AlertContext/AlertContext'
-import { Routes, Route } from "react-router-dom";
 
 function App() {
-
+  const content = useRoutes(routes)
 
   return (
     <EthProvider>
-      fdghjkdfjk
-      <AlertProvider>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="*" element={<NoMatch />} />
-          </Route>
-        </Routes>
-      </AlertProvider>
+      <AlertProvider>{content}</AlertProvider>
     </EthProvider>
   )
 }
